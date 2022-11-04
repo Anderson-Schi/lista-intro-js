@@ -90,7 +90,7 @@ function checaStringsMesmoTamanho(string1, string2) {
 // EXERCÍCIO 09
 function retornaPrimeiroElemento(array) {
   // implemente sua lógica aqui
-  return array[0]
+  return array[0] 
 
 
 }
@@ -98,7 +98,7 @@ function retornaPrimeiroElemento(array) {
 // EXERCÍCIO 10
 function retornaUltimoElemento(array) {
   // implemente sua lógica aqui
-  const ultimo = array[array.length-1]
+  const ultimo = array[array.length-1] // retorna o ultimo indice do array
   return ultimo;
 }
 
@@ -107,8 +107,8 @@ function retornaUltimoElemento(array) {
 // EXERCÍCIO 11
 function trocaPrimeiroEUltimo(array) {
   // implemente sua lógica aqui
-  const arr1 = array.shift();
-  const arr2 = array.pop();
+  const arr1 = array.shift(); // remove o primeiro indice do array
+  const arr2 = array.pop(); // remove o ultimo indice do array
   array.push(arr1);
   array.unshift(arr2)
 
@@ -130,17 +130,50 @@ function checaIgualdadeDesconsiderandoCase(string1, string2) {
 // EXERCÍCIO 13
 function checaRenovacaoRG() {
   // implemente sua lógica aqui
+  const anoAtual = prompt("Informe o ano atual: ");
+  const anoNascimento = prompt("Informe seu ano de nascimento: ");
+  const anoCarteira = prompt("Informe a data de expedicao da sua carteira de identidade: ");
+  const idade = anoAtual - anoNascimento
+  const expRg = anoAtual - anoCarteira 
 
+  const condicao20 = idade <= 20 && expRg >= 5;
+  const condicao20e50 = idade > 20 && idade <= 50 && expRg >= 10;
+  const condicao50Mais = idade > 50 && expRg >= 15;
+
+  const renovaRg = condicao20 || condicao20e50 || condicao50Mais ;
+
+  console.log(renovaRg);
 }
+
 
 // EXERCÍCIO 14
 function checaAnoBissexto(ano) {
-  // implemente sua lógica aqui
+// implemente sua lógica aqui
+
+  const anoBiCond1 = ano % 400 == 0 ;
+  const anoBiCond2 = ano % 4 == 0 && ano % 100 != 0 ;
+   //const anoBiCond3 = ano % 4 == 0 && ano % 100 == 0 && ano % 400 >= 1;
+  const result = anoBiCond1 || anoBiCond2 //&& anoBiCond3;
+  
+ return result
+
+  //console.log(ano, anoBiCond1, anoBiCond2, /* anoBiCond3 */ result);
+  
 
 }
 
 // EXERCÍCIO 15
 function checaValidadeInscricaoLabenu() {
   // implemente sua lógica aqui
+  const idadePerg = prompt("Voce e maior de 18 ? ");
+  const idadeResp = idadePerg === "sim" 
+  const escolaridadePerg = prompt("Voce e possui ensino medio completo? ");
+  const escolaridadeResp = escolaridadePerg === "sim" 
+  const disponibilidadePerg = prompt("Possui disponibilidade durante o horario do curso? ");
+  const disponibilidadeResp = disponibilidadePerg === "sim" 
 
+  const verific = idadeResp && escolaridadeResp && disponibilidadeResp ; 
+
+  console.log(verific);
+  //console.log(idadePerg, idadeResp,escolaridadePerg, escolaridadeResp,disponibilidadePerg, disponibilidadeResp );
 }
